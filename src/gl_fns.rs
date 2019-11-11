@@ -1976,10 +1976,10 @@ impl Gl for GlFns {
         unsafe { self.ffi_gl_.FenceSync(condition, flags) as *const _ }
     }
 
-    fn client_wait_sync(&self, sync: GLsync, flags: GLbitfield, timeout: GLuint64) {
+    fn client_wait_sync(&self, sync: GLsync, flags: GLbitfield, timeout: GLuint64) -> GLenum {
         unsafe {
             self.ffi_gl_
-                .ClientWaitSync(sync as *const _, flags, timeout);
+                .ClientWaitSync(sync as *const _, flags, timeout)
         }
     }
 
